@@ -146,7 +146,6 @@ syntax match rsFieldAccess '\v(\.)@<=[a-z][a-z0-9_]*>(\()@!'
 "
 " Helpers for matching foreign and crate-local items
 "
-
 " Foreign items are always preceded by zero or more type names separated by ‘::’
 " (think nested enum variants) and at least one module path. This module path is
 " preceded by a word separator to prevent matching partially on type names (i.e.
@@ -156,11 +155,13 @@ function! MatchForeign(regex, groupName, extraParams)
 endfunction
 
 "
-" Types
+" Generic types
 "
 
-syntax match rsUserType '\v<[A-Z][A-Za-z0-9]*' nextgroup=rsTypeParams
-call MatchForeign('[A-Z][A-Za-z0-9]*', 'rsForeignType', ' nextgroup=rsTypeParams')
+syntax match rsUserType '\v<[A-Z][A-Za-z0-9]*\ze\s*\<' nextgroup=rsTypeParams
+call MatchForeign('[A-Z][A-Za-z0-9]*\ze\s*\<*', 'rsForeignType', ' nextgroup=rsTypeParams')
+
+
 
 "
 " Standard library lowercase types
@@ -386,6 +387,7 @@ highlight default link rsForeignConst Constant
 highlight default link rsForeignFunc Function
 highlight default link rsForeignMacro Macro
 highlight default link rsForeignType Type
+highlight default link rsVariant Constant
 highlight default link rsFuncDef Function
 highlight default link rsIdentDef Identifier
 highlight default link rsInclude Include
