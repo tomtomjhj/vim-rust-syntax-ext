@@ -1,7 +1,7 @@
 syntax clear
 let b:current_syntax = "rust"
 
-syntax region rsTypeParams matchgroup=rsDelimiter start='<' end='>' keepend contains=TOP
+syntax region rsTypeParams matchgroup=rsDelimiter start='<' end='>' contains=TOP
 
 "
 " Variables
