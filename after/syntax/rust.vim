@@ -163,6 +163,11 @@ call MatchForeign('[A-Z][A-Za-z0-9]*\ze\s*\<*', 'rsForeignType', ' nextgroup=rsT
 
 
 
+" Enum variants
+syn match rsVariant '\<[A-Z][A-Za-z0-9]*\ze\s*\({\|(\)'
+syn match rsVariant '\v(<[A-Z][A-Za-z0-9]*::)@<=[A-Z][A-Za-z0-9]*'
+syn keyword rsVariant None
+
 "
 " Standard library lowercase types
 "
@@ -192,7 +197,7 @@ call MatchForeign('[a-z][a-z0-9_]*!', 'rsForeignMacro', '')
 " Functions
 "
 
-syntax match rsUserFunc '\v[a-z][a-z0-9_]*(\()@='
+syntax match rsUserFunc '\v<[a-z][a-z0-9_]*(\()@='
 
 call MatchForeign('[a-z][a-z0-9_]*(\()@=', 'rsForeignFunc', '')
 
