@@ -84,7 +84,7 @@ syntax keyword rsUnion union nextgroup=rsTypeDef,rsUnusedTypeDef skipwhite skipe
 syntax keyword rsUnsafe unsafe
 syntax keyword rsWhere where
 
-highlight default link rsAs rsKeyword
+highlight default link rsAs rsOperator
 highlight default link rsAsync rsKeyword
 highlight default link rsAwait rsKeyword
 highlight default link rsBreak rsKeyword
@@ -104,14 +104,14 @@ highlight default link rsMut rsKeyword
 highlight default link rsPub rsKeyword
 highlight default link rsRef rsKeyword
 highlight default link rsReturn rsKeyword
-highlight default link rsSelfType rsKeyword
-highlight default link rsSelfValue rsKeyword
+highlight default link rsSelfType Type
+highlight default link rsSelfValue Constant
 highlight default link rsStatic rsKeyword
 highlight default link rsStruct rsKeyword
 highlight default link rsSuper rsKeyword
 highlight default link rsTrait rsKeyword
 highlight default link rsTypeAlias rsKeyword
-highlight default link rsUnderscore rsKeyword
+highlight default link rsUnderscore Operator
 highlight default link rsUnion rsKeyword
 highlight default link rsUnsafe rsKeyword
 highlight default link rsWhere rsKeyword
@@ -385,8 +385,8 @@ highlight default link rsComment Comment
 highlight default link rsCommentNote Todo
 highlight default link rsConditional Conditional
 highlight default link rsDelimiter Delimiter
-highlight default link rsDocComment SpecialComment
-highlight default link rsFieldAccess Identifier
+highlight default link rsDocComment Comment
+" highlight default link rsFieldAccess Identifier
 highlight default link rsFloat Float
 highlight default link rsForeignConst Constant
 highlight default link rsForeignFunc Function
@@ -405,7 +405,7 @@ highlight default link rsQuote StringDelimiter
 highlight default link rsRepeat Repeat
 highlight default link rsSpecialLifetime Special
 highlight default link rsString String
-highlight default link rsTypeDef Typedef
+highlight default link rsTypeDef Identifier
 highlight default link rsUserConst Constant
 highlight default link rsUserFunc Function
 highlight default link rsUserIdent Identifier
