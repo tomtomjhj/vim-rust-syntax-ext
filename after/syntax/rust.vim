@@ -62,6 +62,7 @@ syntax keyword rsDyn dyn
 syntax keyword rsEnum enum nextgroup=rsTypeDef,rsUnusedTypeDef skipwhite skipempty
 syntax keyword rsExtern extern
 syntax keyword rsFn fn nextgroup=rsFuncDef,rsUnusedFuncDef skipwhite skipempty
+" TODO: wrong
 syntax keyword rsImpl impl nextgroup=rsTypeDefParams
 syntax keyword rsIn in
 syntax keyword rsLet let nextgroup=rsIdentDef,rsUnusedIdentDef,rsMut,rsRef,rsPattern skipwhite skipempty
@@ -231,7 +232,7 @@ syntax region rsTypeDefParams
             \ keepend
             \ contains=TOP
 
-syntax match rsTypeParamDef '\v(:\s*)@<![A-Z][A-Za-z0-9]*'
+syntax match rsTypeParamDef '[A-Z][A-Za-z0-9]*\ze:'
             \ contained
             \ containedin=rsTypeDefParams
 
@@ -322,13 +323,14 @@ syntax match rsCharacter "'.'"
 " Delimiters
 "
 
-syntax match rsDelimiter '[(){}\[\]|\.,:;]\+'
+syntax match rsDelimiter '[()\[\]\.,:;]\+'
+syn region rsFoldBraces matchgroup=rsDelimiter start="{" end="}" transparent fold
 
 "
 " Operators
 "
 
-syntax match rsOperator '[!%&/\*+<=>?\^-]\+'
+syntax match rsOperator '[!%&|/\*+<=>?\^-]\+'
 
 " We highlight mutable references separately as an operator because otherwise
 " they would be recognised as the ‘mut’ keyword, thus whatever comes after the
