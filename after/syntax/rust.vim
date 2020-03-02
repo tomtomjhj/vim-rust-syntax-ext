@@ -163,8 +163,10 @@ call MatchForeign('[A-Z][A-Za-z0-9]*\ze\s*\<*', 'rsForeignType', ' nextgroup=rsT
 
 
 
-" Enum variants
-syn match rsVariant '\<[A-Z][A-Za-z0-9]*\ze\s*\({\|(\)'
+" Constructor, enum variants
+syn match rsVariant '\<[A-Z][A-Za-z0-9]*\ze\s*('
+" must exit type region(?), TODO: for expr
+syn match rsVariant '\(\(impl\|for\|->[^{]*\)\s*\)\@<!\<[A-Z][A-Za-z0-9]*\ze\s*{'
 syn match rsVariant '\v(<[A-Z][A-Za-z0-9]*::)@<=[A-Z][A-Za-z0-9]*'
 syn keyword rsVariant None
 
