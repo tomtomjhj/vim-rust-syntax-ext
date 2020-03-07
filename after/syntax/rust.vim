@@ -199,7 +199,7 @@ call MatchForeign('[a-z][a-z0-9_]*!', 'rsForeignMacro', '')
 " Functions
 "
 
-syntax match rsUserFunc '\v<[a-z][a-z0-9_]*(\()@='
+syntax match rsUserFunc '\v<[a-z]\w*(\()@='
 
 call MatchForeign('[a-z][a-z0-9_]*(\()@=', 'rsForeignFunc', '')
 
@@ -250,7 +250,7 @@ highlight default link rsTypeParamDef rsTypeDef
 " Function definitions
 "
 
-syntax match rsFuncDef '\v<[a-z][a-z0-9_]*'
+syntax match rsFuncDef '\v<[a-z]\w*'
             \ contained
             \ nextgroup=rsTypeDefParams
 
