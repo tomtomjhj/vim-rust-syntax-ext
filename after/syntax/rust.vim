@@ -159,7 +159,7 @@ endfunction
 "
 
 syntax match rsUserType '\v<[A-Z][A-Za-z0-9]*\ze\s*\<' nextgroup=rsTypeParams
-call MatchForeign('[A-Z][A-Za-z0-9]*\ze\s*\<*', 'rsForeignType', ' nextgroup=rsTypeParams')
+call MatchForeign('[A-Z][A-Za-z0-9]*\ze\s*\<', 'rsForeignType', ' nextgroup=rsTypeParams')
 
 
 
@@ -167,6 +167,7 @@ call MatchForeign('[A-Z][A-Za-z0-9]*\ze\s*\<*', 'rsForeignType', ' nextgroup=rsT
 syn match rsVariant '\<[A-Z][A-Za-z0-9]*\ze\s*('
 " must exit type region(?), TODO: for expr
 syn match rsVariant '\(\(impl\|for\|->[^{]*\)\s*\)\@<!\<[A-Z][A-Za-z0-9]*\ze\s*{'
+" TODO: associated types
 syn match rsVariant '\v(<[A-Z][A-Za-z0-9]*::)@<=[A-Z][A-Za-z0-9]*'
 syn keyword rsVariant None
 
@@ -356,7 +357,7 @@ syntax region rsBlockComment start='/\*' end='\*/' contains=@Spell
 syntax region rsDocComment start='///' end='$' contains=@Spell
 syntax region rsDocComment start='//!' end='$' contains=@Spell
 
-syntax match rsCommentNote '\v[A-Z]+(:)@='
+syntax match rsCommentNote '\v(TODO|NOTE|BUG|FIXME)(:)@='
             \ contained
             \ containedin=rsComment,rsDocComment
 
