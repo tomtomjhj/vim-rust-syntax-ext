@@ -133,6 +133,7 @@ syntax match rsFieldAccess '\v(\.)@<=[a-z][a-z0-9_]*>(\()@!'
 "
 " Helpers for matching foreign and crate-local items
 "
+
 " Foreign items are always preceded by zero or more type names separated by ‘::’
 " (think nested enum variants) and at least one module path. This module path is
 " preceded by a word separator to prevent matching partially on type names (i.e.
@@ -319,8 +320,7 @@ syntax match rsCharacter "'.'"
 " Delimiters
 "
 
-syntax match rsDelimiter '[()\[\]\.,:;]\+'
-syn region rsFoldBraces matchgroup=rsDelimiter start="{" end="}" transparent fold
+syntax match rsDelimiter '[(){}\[\]|\.,:;]\+'
 
 "
 " Operators
