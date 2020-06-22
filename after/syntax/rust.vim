@@ -4,19 +4,6 @@ let b:current_syntax = "rust"
 syntax region rsTypeParams matchgroup=rsDelimiter start='<' end='>' contains=TOP
 
 "
-" Variables
-"
-
-syntax match rsUserIdent '\v[a-z][a-z0-9_]*'
-
-"
-" Module
-"
-
-syntax match rsModule '\v(::)@<=[a-z][a-z0-9_]*'
-syntax match rsModule '\v[a-z][a-z0-9_]*(::)@='
-
-"
 " Conditionals
 "
 
