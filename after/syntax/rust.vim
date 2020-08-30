@@ -42,7 +42,7 @@ syntax keyword rsAs as
 syntax keyword rsAsync async
 syntax keyword rsAwait await
 syntax keyword rsBreak break
-syntax keyword rsConst const nextgroup=rsIdentDef,rsUnusedIdentDef skipwhite skipempty
+syntax keyword rsConst const nextgroup=rsFn,rsIdentDef,rsUnusedIdentDef skipwhite skipempty
 syntax keyword rsContinue continue
 syntax keyword rsCrate crate
 syntax keyword rsDyn dyn
