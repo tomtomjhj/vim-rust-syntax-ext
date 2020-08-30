@@ -119,7 +119,7 @@ highlight default link rsFalse rsBoolean
 
 syntax region rsString
             \ matchgroup=rsQuote
-            \ start='b\?"'
+            \ start='[br]\?"'
             \ skip='\\"'
             \ end='"'
             \ contains=@Spell
