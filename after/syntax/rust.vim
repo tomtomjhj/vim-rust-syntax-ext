@@ -226,7 +226,6 @@ syntax region rsTypeDefParams
             \ matchgroup=rsDelimiter
             \ start='<'
             \ end='>'
-            \ keepend
             \ contains=TOP
 
 syntax match rsTypeParamDef '[A-Z][A-Za-z0-9]*\ze:'
@@ -298,7 +297,6 @@ syntax region rsAttributeParenWrapped
             \ end=')'
             \ containedin=rsAttribute
             \ contains=TOP
-            \ keepend
 
 "
 " Macro identifiers
