@@ -1,4 +1,8 @@
-syntax clear
+if version < 600
+    syntax clear
+elseif exists("b:current_syntax")
+    finish
+endif
 let b:current_syntax = "rust"
 
 syntax region rsTypeParams matchgroup=rsDelimiter start='<' end='>' contains=TOP
