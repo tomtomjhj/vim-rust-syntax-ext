@@ -293,10 +293,10 @@ syntax match rsFloat '\v<[0-9_]+\.[0-9_]+(f(32|64))?'
 syntax region rsAttribute
             \ matchgroup=rsDelimiter
             \ start='\v#!?\['
-            \ skip='\v\(.*\)'
-            \ end='\]'
+            \ end=']'
 
-syntax region rsAttributeParenWrapped
+syntax region rsAttributeParen
+            \ matchgroup=rsDelimiter
             \ start='('
             \ end=')'
             \ containedin=rsAttribute
@@ -322,7 +322,10 @@ syntax match rsCharacter "'.'"
 " Delimiters
 "
 
-syntax match rsDelimiter '[(){}\[\]|\.,:;]\+'
+syntax match rsDelimiter '[\.,:;]'
+syntax region rsParen   matchgroup=rsDelimiter  start='(' end=')' contains=TOP
+syntax region rsBrace   matchgroup=rsDelimiter  start='{' end='}' contains=TOP
+syntax region rsBracket matchgroup=rsDelimiter start='\[' end=']' contains=TOP
 
 "
 " Operators
