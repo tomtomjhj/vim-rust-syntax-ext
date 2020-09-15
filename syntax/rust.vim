@@ -5,7 +5,7 @@ elseif exists("b:current_syntax")
 endif
 let b:current_syntax = "rust"
 
-syntax region rsTypeParams matchgroup=rsDelimiter start='<' end='>' contains=TOP
+syntax region rsTypeParams matchgroup=rsDelimiter start='<' end='>' contains=@rsTOP
 
 "
 " Conditionals
@@ -230,7 +230,7 @@ syntax region rsTypeDefParams
             \ matchgroup=rsDelimiter
             \ start='<'
             \ end='>'
-            \ contains=TOP
+            \ contains=@rsTOP
 
 syntax match rsTypeParamDef '[A-Z][A-Za-z0-9]*\ze:'
             \ contained
@@ -300,7 +300,7 @@ syntax region rsAttributeParen
             \ start='('
             \ end=')'
             \ containedin=rsAttribute
-            \ contains=TOP
+            \ contains=@rsTOP
 
 "
 " Macro identifiers
@@ -323,9 +323,9 @@ syntax match rsCharacter "'.'"
 "
 
 syntax match rsDelimiter '[\.,:;]'
-syntax region rsParen   matchgroup=rsDelimiter  start='(' end=')' contains=TOP
-syntax region rsBrace   matchgroup=rsDelimiter  start='{' end='}' contains=TOP
-syntax region rsBracket matchgroup=rsDelimiter start='\[' end=']' contains=TOP
+syntax region rsParen   matchgroup=rsDelimiter  start='(' end=')' contains=@rsTOP
+syntax region rsBrace   matchgroup=rsDelimiter  start='{' end='}' contains=@rsTOP
+syntax region rsBracket matchgroup=rsDelimiter start='\[' end=']' contains=@rsTOP
 
 "
 " Operators
@@ -352,6 +352,14 @@ syntax region rsDocComment start='//!' end='$' contains=@Spell
 syntax match rsCommentNote '\v(TODO|NOTE|BUG|FIXME)(:)@='
             \ contained
             \ containedin=rsComment,rsDocComment
+
+"
+" Rust syntax groups that don't have "contained" argument. Use @rsTOP instead
+" of TOP to make highlighting robust when this definition is included by other
+" syntax definition, e.g. markdown.
+"
+
+syntax cluster rsTOP contains=rsTypeParams,rsElse,rsIf,rsMatch,rsFor,rsLoop,rsWhile,rsUse,rsAs,rsAsync,rsAwait,rsBreak,rsConst,rsContinue,rsCrate,rsDyn,rsEnum,rsExtern,rsFn,rsImpl,rsIn,rsLet,rsMod,rsMove,rsMut,rsPub,rsRef,rsReturn,rsSelfType,rsSelfValue,rsStatic,rsStruct,rsSuper,rsTrait,rsTypeAlias,rsUnderscore,rsUnion,rsUnsafe,rsWhere,rsTrue,rsFalse,rsString,rsFieldAccess,rsUserType,rsForeignType,rsVariant,rsLibraryType,rsUserConst,rsForeignConst,rsUserMacro,rsForeignMacro,rsUserFunc,rsForeignFunc,rsUserMethod,rsUserLifetime,rsInferredLifetime,rsStaticLifetime,rsNumber,rsFloat,rsAttribute,rsAttributeParen,rsUserIdent,rsCharacter,rsDelimiter,rsParen,rsBrace,rsBracket,rsOperator,rsComment,rsBlockComment,rsDocComment
 
 "
 " Default linkages
