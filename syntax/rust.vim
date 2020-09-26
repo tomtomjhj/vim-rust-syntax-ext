@@ -367,6 +367,7 @@ syntax cluster rsTOP contains=rsTypeParams,rsElse,rsIf,rsMatch,rsFor,rsLoop,rsWh
 
 highlight default link rsAttribute rsKeyword
 highlight default link rsBoolean Boolean
+highlight default link rsBlockComment Comment
 highlight default link rsCharacter Character
 highlight default link rsComment Comment
 highlight default link rsCommentNote Todo
