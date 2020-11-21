@@ -264,12 +264,13 @@ syntax match rsUnusedIdentDef '\v<_[A-Z0-9_]+>' contained display
 
 highlight default link rsUnusedIdentDef rsIdentDef
 
+" TODO: constructor pattern
 syntax region rsPattern
             \ matchgroup=rsDelimiter
             \ start='('
             \ end=')'
             \ contained
-            \ contains=rsMut,rsRef,rsDelimiter,rsOperator,rsLibraryType,rsUserType,rsIdentDef,rsUnusedIdentDef,rsUnderscore
+            \ contains=rsMut,rsRef,rsDelimiter,rsOperator,rsLibraryType,rsUserType,rsIdentDef,rsUnusedIdentDef,rsUnderscore,rsPattern
 
 "
 " Lifetime definitions
