@@ -284,7 +284,7 @@ syntax match rsLifetimeDef "'[a-z][a-z0-9_]*"
 " Numbers
 "
 
-syntax match rsNumber '\v<\d[0-9_]*((u|i)(size|8|16|32|64|128))?'
+syntax match rsNumber '\v<(0b|0o|0x)?\d[0-9_]*((u|i)(size|8|16|32|64|128))?'
 syntax match rsFloat '\v<\d[0-9_]*\.\d[0-9_]*(f(32|64))?'
 
 "
